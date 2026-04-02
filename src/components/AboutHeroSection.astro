@@ -1,0 +1,28 @@
+---
+interface Props {
+  lang?: "en" | "id";
+}
+
+const { lang = "en" } = Astro.props;
+const isIndonesian = lang === "id";
+const text = {
+  badge: isIndonesian ? "Tentang" : "About",
+  titleStart: isIndonesian ? "Dibangun oleh builder untuk" : "Built by builders for",
+  titleHighlight: isIndonesian ? "tim ambisius" : "ambitious teams",
+  description: isIndonesian ? "Kami adalah agensi engineering berorientasi produk yang membantu organisasi merilis pengalaman digital yang siap skala." : "We are a product-minded engineering agency helping organizations ship digital experiences that scale with confidence."
+};
+---
+
+<section class="px-6 lg:px-12 py-16 lg:py-24 max-w-7xl mx-auto">
+  <div class="max-w-3xl space-y-6">
+    <div class="inline-block bg-black text-white px-3 py-1 text-[10px] uppercase tracking-widest font-bold">
+      {text.badge}
+    </div>
+    <h1 class="text-6xl lg:text-7xl font-extrabold tracking-tight-uber leading-none">
+      {text.titleStart} <span class="text-[#276EF1]">{text.titleHighlight}</span>.
+    </h1>
+    <p class="text-xl text-zinc-600">
+      {text.description}
+    </p>
+  </div>
+</section>

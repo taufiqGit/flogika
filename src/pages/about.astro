@@ -1,11 +1,41 @@
 ---
-import Welcome from '../components/Welcome.astro';
-import Layout from '../layouts/Layout.astro';
-
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+import "../styles/global.css";
+import AgencyPageHead from "../components/AgencyPageHead.astro";
+import AgencyNavigation from "../components/AgencyNavigation.astro";
+import AgencyFooter from "../components/AgencyFooter.astro";
+import AboutHeroSection from "../components/AboutHeroSection.astro";
+import AboutValuesSection from "../components/AboutValuesSection.astro";
+import AboutCtaSection from "../components/AboutCtaSection.astro";
 ---
 
-<Layout>
-	<Welcome />
-</Layout>
+<!doctype html>
+<html lang="en">
+  <head>
+    <AgencyPageHead title="About | Web Agency Inc" />
+  </head>
+  <body>
+    <div class="min-h-screen bg-white flex flex-col">
+      <AgencyNavigation
+        activeItem="about"
+        servicesHref="/service"
+        portfolioHref="/portofolio"
+        aboutHref="/about"
+        contactHref="#contact"
+        lang="en"
+        switchToEnHref="/about"
+        switchToIdHref="/id/about"
+      />
+      <main class="flex-1 pt-24" style="view-transition-name: main-content">
+        <AboutHeroSection lang="en" />
+        <AboutValuesSection lang="en" />
+        <AboutCtaSection lang="en" />
+      </main>
+      <AgencyFooter
+        webDevHref="/service"
+        aboutHref="/about"
+        contactHref="#contact"
+        lang="en"
+      />
+    </div>
+  </body>
+</html>

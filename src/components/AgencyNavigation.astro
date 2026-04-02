@@ -1,0 +1,85 @@
+---
+import { getRelativeLocaleUrl } from 'astro:i18n';
+interface Props {
+  activeItem?: "home" | "services" | "portfolio" | "about";
+  homeHref?: string;
+  servicesHref?: string;
+  portfolioHref?: string;
+  aboutHref?: string;
+  contactHref?: string;
+  lang?: "en" | "id";
+  switchToEnHref?: string;
+  switchToIdHref?: string;
+}
+
+const {
+  activeItem = "home",
+  homeHref,
+  servicesHref,
+  portfolioHref,
+  aboutHref,
+  contactHref = "#contact",
+  lang = "en",
+  switchToEnHref,
+  switchToIdHref
+} = Astro.props;
+
+const activeClass = "text-black opacity-100";
+const inactiveClass = "text-black/60 hover:opacity-70";
+const isIndonesian = lang === "id";
+const text = {
+  services: isIndonesian ? "Layanan" : "Services",
+  portfolio: isIndonesian ? "Portofolio" : "Portfolio",
+  about: isIndonesian ? "Tentang" : "About",
+  contact: isIndonesian ? "Hubungi Kami" : "Contact Us"
+};
+
+const routeByItem = {
+  home: "",
+  services: "service",
+  portfolio: "portofolio",
+  about: "about"
+} as const;
+const targetRoute = routeByItem[activeItem];
+const toEn = getRelativeLocaleUrl("en", targetRoute);
+const toId = getRelativeLocaleUrl("id", targetRoute);
+const enHref = switchToEnHref ?? toEn;
+const idHref = switchToIdHref ?? toId;
+const localizedHomeHref = homeHref ?? getRelativeLocaleUrl(lang, "");
+const localizedServicesHref = servicesHref ?? getRelativeLocaleUrl(lang, "service");
+const localizedPortfolioHref = portfolioHref ?? getRelativeLocaleUrl(lang, "portofolio");
+const localizedAboutHref = aboutHref ?? getRelativeLocaleUrl(lang, "about");
+---
+
+<nav class="fixed top-0 left-0 right-0 z-50 bg-white border-b border-gray-100 px-6 py-4 flex items-center justify-between">
+  <div class="flex items-center gap-8">
+    <a href={localizedHomeHref} id="nav-logo-link" class="flex items-center">
+      <img
+        src="https://vgbujcuwptvheqijyjbe.supabase.co/storage/v1/object/public/hmac-uploads/uploads/f9d8c84d-888c-4030-bf75-477f0928ee4d/1766720562184-a0cfc534/uber_logo.svg"
+        alt="Logo"
+        class="h-6 w-auto"
+      />
+    </a>
+    <div class="hidden md:flex items-center gap-6">
+      <a href={localizedServicesHref} id="nav-services-link" class={`text-sm font-medium transition-opacity ${activeItem === "services" ? activeClass : inactiveClass}`}>{text.services}</a>
+      <a href={localizedPortfolioHref} id="nav-portfolio-link" class={`text-sm font-medium transition-opacity ${activeItem === "portfolio" ? activeClass : inactiveClass}`}>{text.portfolio}</a>
+      <a href={localizedAboutHref} id="nav-about-link" class={`text-sm font-medium transition-opacity ${activeItem === "about" ? activeClass : inactiveClass}`}>{text.about}</a>
+    </div>
+  </div>
+  <div class="flex items-center gap-3">
+    <div class="hidden md:flex items-center border border-zinc-200 rounded-full p-1 text-xs font-semibold">
+      <a href={enHref} class={`px-2.5 py-1 rounded-full ${lang === "en" ? "bg-black text-white" : "text-zinc-500 hover:text-black"}`}>EN</a>
+      <a href={idHref} class={`px-2.5 py-1 rounded-full ${lang === "id" ? "bg-black text-white" : "text-zinc-500 hover:text-black"}`}>ID</a>
+    </div>
+    <a
+      href={contactHref}
+      id="nav-cta-btn"
+      class="bg-black text-white px-6 py-2.5 rounded-full text-sm font-semibold hover:bg-zinc-800 transition-all"
+    >
+      {text.contact}
+    </a>
+    <button class="md:hidden flex items-center p-2" type="button">
+      <iconify-icon icon="lucide:menu" class="text-2xl"></iconify-icon>
+    </button>
+  </div>
+</nav>

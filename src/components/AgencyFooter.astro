@@ -1,0 +1,99 @@
+---
+interface Props {
+  webDevHref?: string;
+  cloudHref?: string;
+  designHref?: string;
+  ecommerceHref?: string;
+  aboutHref?: string;
+  careersHref?: string;
+  blogHref?: string;
+  contactHref?: string;
+  privacyHref?: string;
+  termsHref?: string;
+  lang?: "en" | "id";
+}
+
+const {
+  webDevHref = "/service",
+  cloudHref = "#",
+  designHref = "#",
+  ecommerceHref = "#",
+  aboutHref = "/about",
+  careersHref = "#",
+  blogHref = "#",
+  contactHref = "#contact",
+  privacyHref = "#",
+  termsHref = "#",
+  lang = "en"
+} = Astro.props;
+
+const currentYear = new Date().getFullYear();
+const isIndonesian = lang === "id";
+const text = {
+  description: isIndonesian
+    ? "Agensi pengembangan berbasis desain yang berkomitmen pada kualitas, performa, dan craft produk digital."
+    : "A design-driven development agency committed to excellence, performance, and the craft of digital product building.",
+  services: isIndonesian ? "Layanan" : "Services",
+  company: isIndonesian ? "Perusahaan" : "Company",
+  webDevelopment: isIndonesian ? "Pengembangan Web" : "Web Development",
+  cloudComputing: isIndonesian ? "Komputasi Cloud" : "Cloud Computing",
+  contact: isIndonesian ? "Kontak" : "Contact",
+  aboutUs: isIndonesian ? "Tentang Kami" : "About Us",
+  careers: isIndonesian ? "Karier" : "Careers",
+  insights: isIndonesian ? "Wawasan" : "Insights",
+  rights: isIndonesian ? "Hak cipta dilindungi." : "All rights reserved.",
+  privacyPolicy: isIndonesian ? "Kebijakan Privasi" : "Privacy Policy",
+  termsOfService: isIndonesian ? "Syarat Layanan" : "Terms of Service"
+};
+---
+
+<footer class="bg-white py-16 px-6 lg:px-12 border-t border-zinc-100">
+  <div class="max-w-7xl mx-auto grid md:grid-cols-4 gap-12">
+    <div class="col-span-1 md:col-span-2 space-y-6">
+      <img
+        src="https://vgbujcuwptvheqijyjbe.supabase.co/storage/v1/object/public/hmac-uploads/uploads/f9d8c84d-888c-4030-bf75-477f0928ee4d/1766720562184-a0cfc534/uber_logo.svg"
+        alt="Logo"
+        class="h-5 w-auto"
+      />
+      <p class="text-zinc-500 max-w-sm">
+        {text.description}
+      </p>
+      <div class="flex gap-4">
+        <a href="#" id="social-twitter" class="text-zinc-400 hover:text-black transition-colors">
+          <iconify-icon icon="brandico:twitter-bird" class="text-xl"></iconify-icon>
+        </a>
+        <a href="#" id="social-linkedin" class="text-zinc-400 hover:text-black transition-colors">
+          <iconify-icon icon="brandico:linkedin" class="text-xl"></iconify-icon>
+        </a>
+        <a href="#" id="social-github" class="text-zinc-400 hover:text-black transition-colors">
+          <iconify-icon icon="brandico:github" class="text-xl"></iconify-icon>
+        </a>
+      </div>
+    </div>
+    <div class="space-y-4">
+      <h4 class="font-bold uppercase text-xs tracking-widest">{text.services}</h4>
+      <ul class="space-y-2 text-zinc-500 text-sm">
+        <li><a href={webDevHref} id="f-web-dev" class="hover:text-black transition-colors">{text.webDevelopment}</a></li>
+        <li><a href={cloudHref} id="f-cloud" class="hover:text-black transition-colors">{text.cloudComputing}</a></li>
+        <li><a href={designHref} id="f-design" class="hover:text-black transition-colors">UX/UI Design</a></li>
+        <li><a href={ecommerceHref} id="f-ecommerce" class="hover:text-black transition-colors">E-commerce</a></li>
+      </ul>
+    </div>
+    <div class="space-y-4">
+      <h4 class="font-bold uppercase text-xs tracking-widest">{text.company}</h4>
+      <ul class="space-y-2 text-zinc-500 text-sm">
+        <li><a href={aboutHref} id="f-about" class="hover:text-black transition-colors">{text.aboutUs}</a></li>
+        <li><a href={careersHref} id="f-careers" class="hover:text-black transition-colors">{text.careers}</a></li>
+        <li><a href={blogHref} id="f-blog" class="hover:text-black transition-colors">{text.insights}</a></li>
+        <li><a href={contactHref} id="f-contact" class="hover:text-black transition-colors">{text.contact}</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="max-w-7xl mx-auto pt-16 mt-16 border-t border-zinc-100 flex flex-col md:flex-row justify-between gap-4 text-xs text-zinc-400 font-medium">
+    <div>&copy; {currentYear} Web Agency Inc. {text.rights}</div>
+    <div class="flex gap-6">
+      <a href={privacyHref} id="f-privacy" class="hover:text-black">{text.privacyPolicy}</a>
+      <a href={termsHref} id="f-terms" class="hover:text-black">{text.termsOfService}</a>
+    </div>
+  </div>
+</footer>

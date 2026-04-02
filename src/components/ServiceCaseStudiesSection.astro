@@ -1,0 +1,61 @@
+---
+interface Props {
+  lang?: "en" | "id";
+}
+
+const { lang = "en" } = Astro.props;
+const isIndonesian = lang === "id";
+const text = {
+  title: isIndonesian ? "Kisah Sukses" : "Success Stories",
+  subtitle: isIndonesian ? "Dampak nyata untuk mitra global kami." : "Real impact delivered for our global partners.",
+  explore: isIndonesian ? "Lihat Portofolio" : "Explore Portfolio",
+  study1Title: isIndonesian ? "Ekspansi Fintech" : "Fintech Expansion",
+  study1Desc: isIndonesian ? "Merancang masa depan transaksi mobile banking." : "Architecting the future of mobile banking transactions.",
+  study1Result: isIndonesian ? "Penurunan latensi 40% dan peningkatan throughput transaksi 2,5x." : "40% reduction in latency and 2.5x increase in transaction throughput.",
+  study2Title: isIndonesian ? "Manajemen Armada" : "Fleet Management",
+  study2Desc: isIndonesian ? "Platform logistik real-time untuk distribusi nasional." : "Real-time logistics platform for national distribution.",
+  study2Result: isIndonesian ? "Visibilitas end-to-end untuk 5.000+ kendaraan aktif di 12 wilayah." : "End-to-end visibility for 5,000+ active vehicles across 12 regions."
+};
+---
+
+<section class="py-24 px-6 lg:px-12 max-w-7xl mx-auto">
+  <div class="flex justify-between items-end mb-16">
+    <div class="max-w-xl">
+      <h2 class="text-4xl font-extrabold tracking-tight-uber">{text.title}</h2>
+      <p class="text-zinc-500 mt-2">{text.subtitle}</p>
+    </div>
+    <a
+      href="https://draft-0864fc93-5f29-49b6-8f49-133cd8109984.preview.superdesign.dev"
+      id="case-study-all-link"
+      class="text-sm font-bold border-b-2 border-black pb-1"
+    >
+      {text.explore}
+    </a>
+  </div>
+  <div class="grid md:grid-cols-2 gap-12">
+    <div class="group cursor-pointer">
+      <div class="overflow-hidden mb-6">
+        <img
+          src="https://pquxfbbxflqvtidtlrhl.supabase.co/storage/v1/object/public/hmac-uploads/brand/aa611a48-0f31-4fc3-91b8-a97e15fbee97/assets/ff3ed0f3-ff67-4e24-9152-b1f9c0bb7372.webp"
+          alt="Case Study 1"
+          class="w-full h-80 object-cover group-hover:scale-105 transition-transform duration-500"
+        />
+      </div>
+      <h4 class="text-xs font-bold uppercase tracking-widest text-[#276EF1] mb-2">{text.study1Title}</h4>
+      <h3 class="text-2xl font-bold mb-4">{text.study1Desc}</h3>
+      <p class="text-zinc-500">{text.study1Result}</p>
+    </div>
+    <div class="group cursor-pointer">
+      <div class="overflow-hidden mb-6">
+        <img
+          src="https://pquxfbbxflqvtidtlrhl.supabase.co/storage/v1/object/public/hmac-uploads/brand/aa611a48-0f31-4fc3-91b8-a97e15fbee97/assets/ecd09de0-9dde-4f7d-91d4-12eeea2756e4.png"
+          alt="Case Study 2"
+          class="w-full h-80 object-cover group-hover:scale-105 transition-transform duration-500"
+        />
+      </div>
+      <h4 class="text-xs font-bold uppercase tracking-widest text-[#276EF1] mb-2">{text.study2Title}</h4>
+      <h3 class="text-2xl font-bold mb-4">{text.study2Desc}</h3>
+      <p class="text-zinc-500">{text.study2Result}</p>
+    </div>
+  </div>
+</section>

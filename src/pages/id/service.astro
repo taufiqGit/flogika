@@ -1,0 +1,46 @@
+---
+import "../../styles/global.css";
+import AgencyPageHead from "../../components/AgencyPageHead.astro";
+import AgencyNavigation from "../../components/AgencyNavigation.astro";
+import AgencyFooter from "../../components/AgencyFooter.astro";
+import ServiceHeroSection from "../../components/ServiceHeroSection.astro";
+import ServiceHighlightsSection from "../../components/ServiceHighlightsSection.astro";
+import ServiceTechStackSection from "../../components/ServiceTechStackSection.astro";
+import ServicePricingSection from "../../components/ServicePricingSection.astro";
+import ServiceCaseStudiesSection from "../../components/ServiceCaseStudiesSection.astro";
+---
+
+<!doctype html>
+<html lang="id">
+  <head>
+    <AgencyPageHead title="Layanan Pengembangan Web | Uber Agency" />
+  </head>
+  <body>
+    <div class="min-h-screen bg-white flex flex-col">
+      <AgencyNavigation
+        activeItem="services"
+        homeHref="/"
+        servicesHref="/id/service"
+        portfolioHref="/id/portofolio"
+        aboutHref="/id/about"
+        contactHref="#contact"
+        lang="id"
+        switchToEnHref="/service"
+        switchToIdHref="/id/service"
+      />
+      <main class="flex-1 pt-24" style="view-transition-name: main-content">
+        <ServiceHeroSection lang="id" />
+        <ServiceHighlightsSection lang="id" />
+        <ServiceTechStackSection lang="id" />
+        <ServicePricingSection lang="id" />
+        <ServiceCaseStudiesSection lang="id" />
+      </main>
+      <AgencyFooter
+        webDevHref="/id/service"
+        aboutHref="/id/about"
+        contactHref="#contact"
+        lang="id"
+      />
+    </div>
+  </body>
+</html>

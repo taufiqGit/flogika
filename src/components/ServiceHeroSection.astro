@@ -1,0 +1,54 @@
+---
+interface Props {
+  lang?: "en" | "id";
+}
+
+const { lang = "en" } = Astro.props;
+const isIndonesian = lang === "id";
+const text = {
+  badge: isIndonesian ? "Layanan Utama" : "Core Offering",
+  title: isIndonesian ? "Pengembangan Web Enterprise." : "Enterprise Web Development.",
+  description: isIndonesian
+    ? "Kami merancang aplikasi web yang andal, skalabel, dan berperforma tinggi sebagai fondasi bisnis modern."
+    : "We engineer robust, scalable, and high-performance web applications that serve as the backbone for modern businesses.",
+  cta: isIndonesian ? "Konsultasi Sekarang" : "Inquire Now",
+  kickoff: isIndonesian ? "Rata-rata Kickoff: 7 Hari" : "Avg. Kickoff: 7 Days",
+  imageAlt: isIndonesian ? "Pengembangan Modern" : "Modern Development"
+};
+---
+
+<section class="px-6 lg:px-12 py-16 lg:py-24 max-w-7xl mx-auto">
+  <div class="grid lg:grid-cols-12 gap-16 items-start">
+    <div class="lg:col-span-7 space-y-8">
+      <div class="inline-block bg-[#276EF1] text-white px-3 py-1 text-[10px] uppercase tracking-widest font-bold">
+        {text.badge}
+      </div>
+      <h1 class="text-6xl lg:text-7xl font-extrabold tracking-tight-uber leading-tight">
+        {text.title}
+      </h1>
+      <p class="text-xl text-zinc-600 max-w-2xl">
+        {text.description}
+      </p>
+      <div class="flex items-center gap-6 pt-4">
+        <a
+          href="https://draft-e11fecc2-0b32-4174-ab08-ccd3c29b1ab1.preview.superdesign.dev"
+          id="detail-cta-btn"
+          class="bg-black text-white px-10 py-4 text-base font-bold hover:bg-zinc-800 transition-all"
+        >
+          {text.cta}
+        </a>
+        <div class="flex items-center gap-2 text-sm font-semibold">
+          <iconify-icon icon="lucide:clock" class="text-[#276EF1]"></iconify-icon>
+          {text.kickoff}
+        </div>
+      </div>
+    </div>
+    <div class="lg:col-span-5">
+      <img
+        src="https://pquxfbbxflqvtidtlrhl.supabase.co/storage/v1/object/public/hmac-uploads/brand/aa611a48-0f31-4fc3-91b8-a97e15fbee97/assets/be4347ae-06f7-48da-a3cd-e47cbcda0523.webp"
+        alt={text.imageAlt}
+        class="rounded-lg shadow-2xl w-full aspect-[4/5] object-cover"
+      />
+    </div>
+  </div>
+</section>

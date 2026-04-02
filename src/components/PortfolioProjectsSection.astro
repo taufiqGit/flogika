@@ -1,0 +1,142 @@
+---
+interface Props {
+  lang?: "en" | "id";
+}
+
+const { lang = "en" } = Astro.props;
+const isIndonesian = lang === "id";
+const text = {
+  cat1: isIndonesian ? "Logistik & Rantai Pasok" : "Logistics & Supply Chain",
+  desc1: isIndonesian ? "Platform pelacakan global real-time untuk perusahaan kurir, memproses lebih dari 2 juta pengiriman harian tanpa latensi." : "A real-time global tracking system for a courier giant, processing over 2 million shipments daily with zero latency.",
+  quote1: isIndonesian ? "\"Kualitas engineering dari Web Agency Inc memungkinkan kami menskalakan operasi global hanya dalam hitungan bulan. Mitra kelas dunia.\"": "\"The engineering quality provided by Web Agency Inc allowed us to scale our operations globally within months. A truly world-class partner.\"",
+  cat2: isIndonesian ? "Otomotif & Rental" : "Automotive & Rental",
+  desc2: isIndonesian ? "Marketplace rental multi-tenant yang mendukung 50+ bahasa dan mesin dynamic pricing untuk pasar lokal." : "Multi-tenant rental marketplace supporting 50+ languages and dynamic pricing engines for localized markets.",
+  quote2: isIndonesian ? "\"Alur pemesanan terlokalisasi menghasilkan peningkatan 40% reservasi lintas negara hanya pada kuartal pertama.\"": "\"The localized booking flows resulted in a 40% increase in cross-border reservations in just the first quarter.\"",
+  cat3: isIndonesian ? "Fintech & Perbankan" : "Fintech & Banking",
+  desc3: isIndonesian ? "Dashboard manajemen aset aman dengan pelacakan portofolio real-time dan pelaporan compliance otomatis." : "Secure asset management dashboard with real-time portfolio tracking and automated compliance reporting.",
+  quote3: isIndonesian ? "\"Standar keamanan tanpa kompromi dan antarmuka mulus yang sangat disukai klien premium kami.\"": "\"Unmatched security standards and a seamless user interface that our high-net-worth clients absolutely love.\"",
+  cat4: isIndonesian ? "Ritel Mewah" : "Luxury Retail",
+  desc4: isIndonesian ? "Storefront e-commerce dengan konversi tinggi, arsitektur headless kustom, dan AR virtual try-on terintegrasi." : "High-converting e-commerce storefront with custom headless architecture and integrated AR virtual try-on.",
+  quote4: isIndonesian ? "\"Kecepatan situs headless plus fitur AR mendorong engagement kami naik drastis.\"": "\"The speed of the headless site combined with AR features drove our engagement rates through the roof.\""
+};
+---
+
+<section class="px-6 lg:px-12 pb-24 max-w-7xl mx-auto">
+  <div class="grid md:grid-cols-2 lg:grid-cols-2 gap-x-12 gap-y-20">
+    <div class="group cursor-pointer">
+      <div class="overflow-hidden bg-zinc-100 aspect-[16/10] mb-8 relative rounded-lg">
+        <img
+          src="https://pquxfbbxflqvtidtlrhl.supabase.co/storage/v1/object/public/hmac-uploads/brand/aa611a48-0f31-4fc3-91b8-a97e15fbee97/assets/7d9bed9b-8b0f-4125-90a3-af750783d201.png"
+          alt="Logistics Platform"
+          class="project-image w-full h-full object-cover transition-transform duration-700"
+        />
+      </div>
+      <div class="flex items-start justify-between gap-4 mb-4">
+        <div class="space-y-1">
+          <div class="text-[10px] font-bold text-[#276EF1] uppercase tracking-widest">{text.cat1}</div>
+          <h3 class="text-3xl font-extrabold tracking-tight-uber">SwiftTrack Enterprise</h3>
+        </div>
+        <a href="#" id="project-1-link" class="w-12 h-12 rounded-full border border-zinc-200 flex items-center justify-center group-hover:bg-black group-hover:text-white transition-all">
+          <iconify-icon icon="lucide:arrow-up-right" class="text-xl"></iconify-icon>
+        </a>
+      </div>
+      <p class="text-zinc-600 mb-6">{text.desc1}</p>
+      <div class="flex flex-wrap gap-2 mb-8">
+        <span class="px-3 py-1 bg-zinc-100 text-[11px] font-bold text-zinc-700 uppercase">React</span>
+        <span class="px-3 py-1 bg-zinc-100 text-[11px] font-bold text-zinc-700 uppercase">Node.js</span>
+        <span class="px-3 py-1 bg-zinc-100 text-[11px] font-bold text-zinc-700 uppercase">AWS Lambda</span>
+      </div>
+      <div class="bg-[#F3F3F3] p-6 border-l-4 border-black italic text-sm text-zinc-700 mb-4">
+        {text.quote1}<br />
+        <span class="not-italic font-bold text-black mt-2 block">— Marcus Chen, CTO at SwiftTrack</span>
+      </div>
+    </div>
+
+    <div class="group cursor-pointer">
+      <div class="overflow-hidden bg-zinc-100 aspect-[16/10] mb-8 relative rounded-lg">
+        <img
+          src="https://pquxfbbxflqvtidtlrhl.supabase.co/storage/v1/object/public/hmac-uploads/brand/aa611a48-0f31-4fc3-91b8-a97e15fbee97/assets/ecd09de0-9dde-4f7d-91d4-12eeea2756e4.png"
+          alt="Car Rental App"
+          class="project-image w-full h-full object-cover transition-transform duration-700"
+        />
+      </div>
+      <div class="flex items-start justify-between gap-4 mb-4">
+        <div class="space-y-1">
+          <div class="text-[10px] font-bold text-[#276EF1] uppercase tracking-widest">{text.cat2}</div>
+          <h3 class="text-3xl font-extrabold tracking-tight-uber">DriveGlobal Platform</h3>
+        </div>
+        <a href="#" id="project-2-link" class="w-12 h-12 rounded-full border border-zinc-200 flex items-center justify-center group-hover:bg-black group-hover:text-white transition-all">
+          <iconify-icon icon="lucide:arrow-up-right" class="text-xl"></iconify-icon>
+        </a>
+      </div>
+      <p class="text-zinc-600 mb-6">{text.desc2}</p>
+      <div class="flex flex-wrap gap-2 mb-8">
+        <span class="px-3 py-1 bg-zinc-100 text-[11px] font-bold text-zinc-700 uppercase">Next.js</span>
+        <span class="px-3 py-1 bg-zinc-100 text-[11px] font-bold text-zinc-700 uppercase">PostgreSQL</span>
+        <span class="px-3 py-1 bg-zinc-100 text-[11px] font-bold text-zinc-700 uppercase">Redis</span>
+      </div>
+      <div class="bg-[#F3F3F3] p-6 border-l-4 border-black italic text-sm text-zinc-700 mb-4">
+        {text.quote2}<br />
+        <span class="not-italic font-bold text-black mt-2 block">— Elena Rodriguez, Product Lead</span>
+      </div>
+    </div>
+
+    <div class="group cursor-pointer">
+      <div class="overflow-hidden bg-zinc-100 aspect-[16/10] mb-8 relative rounded-lg">
+        <img
+          src="https://pquxfbbxflqvtidtlrhl.supabase.co/storage/v1/object/public/hmac-uploads/brand/aa611a48-0f31-4fc3-91b8-a97e15fbee97/assets/cd41ecf3-24c9-407d-8b6f-51ed14683272.webp"
+          alt="Fintech App"
+          class="project-image w-full h-full object-cover transition-transform duration-700"
+        />
+      </div>
+      <div class="flex items-start justify-between gap-4 mb-4">
+        <div class="space-y-1">
+          <div class="text-[10px] font-bold text-[#276EF1] uppercase tracking-widest">{text.cat3}</div>
+          <h3 class="text-3xl font-extrabold tracking-tight-uber">Vertex Capital Portal</h3>
+        </div>
+        <a href="#" id="project-3-link" class="w-12 h-12 rounded-full border border-zinc-200 flex items-center justify-center group-hover:bg-black group-hover:text-white transition-all">
+          <iconify-icon icon="lucide:arrow-up-right" class="text-xl"></iconify-icon>
+        </a>
+      </div>
+      <p class="text-zinc-600 mb-6">{text.desc3}</p>
+      <div class="flex flex-wrap gap-2 mb-8">
+        <span class="px-3 py-1 bg-zinc-100 text-[11px] font-bold text-zinc-700 uppercase">React Native</span>
+        <span class="px-3 py-1 bg-zinc-100 text-[11px] font-bold text-zinc-700 uppercase">Python</span>
+        <span class="px-3 py-1 bg-zinc-100 text-[11px] font-bold text-zinc-700 uppercase">Kubernetes</span>
+      </div>
+      <div class="bg-[#F3F3F3] p-6 border-l-4 border-black italic text-sm text-zinc-700 mb-4">
+        {text.quote3}<br />
+        <span class="not-italic font-bold text-black mt-2 block">— David V., Managing Director</span>
+      </div>
+    </div>
+
+    <div class="group cursor-pointer">
+      <div class="overflow-hidden bg-zinc-100 aspect-[16/10] mb-8 relative rounded-lg">
+        <img
+          src="https://pquxfbbxflqvtidtlrhl.supabase.co/storage/v1/object/public/hmac-uploads/brand/aa611a48-0f31-4fc3-91b8-a97e15fbee97/assets/be4347ae-06f7-48da-a3cd-e47cbcda0523.webp"
+          alt="E-commerce Platform"
+          class="project-image w-full h-full object-cover transition-transform duration-700"
+        />
+      </div>
+      <div class="flex items-start justify-between gap-4 mb-4">
+        <div class="space-y-1">
+          <div class="text-[10px] font-bold text-[#276EF1] uppercase tracking-widest">{text.cat4}</div>
+          <h3 class="text-3xl font-extrabold tracking-tight-uber">Noir Fashion House</h3>
+        </div>
+        <a href="#" id="project-4-link" class="w-12 h-12 rounded-full border border-zinc-200 flex items-center justify-center group-hover:bg-black group-hover:text-white transition-all">
+          <iconify-icon icon="lucide:arrow-up-right" class="text-xl"></iconify-icon>
+        </a>
+      </div>
+      <p class="text-zinc-600 mb-6">{text.desc4}</p>
+      <div class="flex flex-wrap gap-2 mb-8">
+        <span class="px-3 py-1 bg-zinc-100 text-[11px] font-bold text-zinc-700 uppercase">Shopify Plus</span>
+        <span class="px-3 py-1 bg-zinc-100 text-[11px] font-bold text-zinc-700 uppercase">Hydrogen</span>
+        <span class="px-3 py-1 bg-zinc-100 text-[11px] font-bold text-zinc-700 uppercase">Three.js</span>
+      </div>
+      <div class="bg-[#F3F3F3] p-6 border-l-4 border-black italic text-sm text-zinc-700 mb-4">
+        {text.quote4}<br />
+        <span class="not-italic font-bold text-black mt-2 block">— Sarah L., Digital Director</span>
+      </div>
+    </div>
+  </div>
+</section>

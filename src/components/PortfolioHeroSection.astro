@@ -1,0 +1,29 @@
+---
+interface Props {
+  lang?: "en" | "id";
+}
+
+const { lang = "en" } = Astro.props;
+const isIndonesian = lang === "id";
+const text = {
+  title: isIndonesian ? "Dirancang untuk" : "Engineered for",
+  highlight: isIndonesian ? "dampak" : "impact",
+  description: isIndonesian
+    ? "Kumpulan produk digital, platform, dan antarmuka berperforma tinggi untuk pemimpin industri global."
+    : "A collection of high-performance digital products, platforms, and interfaces built for global industry leaders."
+};
+---
+
+<section class="px-6 lg:px-12 py-16 lg:py-24 max-w-7xl mx-auto">
+  <div class="max-w-3xl space-y-6">
+    <div class="inline-block bg-black text-white px-3 py-1 text-[10px] uppercase tracking-widest font-bold">
+      Portfolio
+    </div>
+    <h1 class="text-6xl lg:text-7xl font-extrabold tracking-tight-uber leading-none">
+      {text.title} <span class="text-[#276EF1]">{text.highlight}</span>.
+    </h1>
+    <p class="text-xl text-zinc-600">
+      {text.description}
+    </p>
+  </div>
+</section>

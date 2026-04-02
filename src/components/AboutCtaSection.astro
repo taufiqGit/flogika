@@ -1,0 +1,31 @@
+---
+interface Props {
+  lang?: "en" | "id";
+}
+
+const { lang = "en" } = Astro.props;
+const isIndonesian = lang === "id";
+const text = {
+  titleStart: isIndonesian ? "Mari bangun" : "Let’s build your next",
+  titleHighlight: isIndonesian ? "produk breakthrough Anda" : "breakthrough product",
+  subtitle: isIndonesian ? "Ceritakan tujuan Anda dan kami akan membantu menyusun product dan engineering roadmap yang tepat." : "Tell us your goals and we will help you shape the right product and engineering roadmap.",
+  cta: isIndonesian ? "Mulai Diskusi" : "Start a Conversation"
+};
+---
+
+<section id="contact" class="px-6 py-24 bg-black text-white">
+  <div class="max-w-4xl mx-auto text-center">
+    <h2 class="text-4xl lg:text-6xl font-extrabold tracking-tight-uber mb-8">
+      {text.titleStart} <span class="text-[#276EF1]">{text.titleHighlight}</span>.
+    </h2>
+    <p class="text-xl text-zinc-400 mb-12">
+      {text.subtitle}
+    </p>
+    <a href="#"
+      id="about-cta-btn"
+      class="bg-white text-black px-12 py-5 text-lg font-bold hover:bg-zinc-200 transition-all inline-flex"
+    >
+      {text.cta}
+    </a>
+  </div>
+</section>

@@ -1,0 +1,53 @@
+---
+import "../../styles/global.css";
+import AgencyPageHead from "../../components/AgencyPageHead.astro";
+import AgencyNavigation from "../../components/AgencyNavigation.astro";
+import AgencyFooter from "../../components/AgencyFooter.astro";
+import PortfolioHeroSection from "../../components/PortfolioHeroSection.astro";
+import PortfolioFilterSection from "../../components/PortfolioFilterSection.astro";
+import PortfolioProjectsSection from "../../components/PortfolioProjectsSection.astro";
+import PortfolioCtaSection from "../../components/PortfolioCtaSection.astro";
+---
+
+<!doctype html>
+<html lang="id">
+  <head>
+    <AgencyPageHead title="Portofolio | Web Agency Inc" />
+    <style>
+      .project-card:hover .project-image {
+        transform: scale(1.05);
+      }
+      .filter-btn.active {
+        background-color: black;
+        color: white;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="min-h-screen bg-white flex flex-col">
+      <AgencyNavigation
+        activeItem="portfolio"
+        homeHref="/"
+        servicesHref="/id/service"
+        portfolioHref="/id/portofolio"
+        aboutHref="/id/about"
+        contactHref="#contact"
+        lang="id"
+        switchToEnHref="/portofolio"
+        switchToIdHref="/id/portofolio"
+      />
+      <main class="flex-1 pt-24" style="view-transition-name: main-content">
+        <PortfolioHeroSection lang="id" />
+        <PortfolioFilterSection lang="id" />
+        <PortfolioProjectsSection lang="id" />
+        <PortfolioCtaSection lang="id" />
+      </main>
+      <AgencyFooter
+        webDevHref="/id/service"
+        aboutHref="/id/about"
+        contactHref="#contact"
+        lang="id"
+      />
+    </div>
+  </body>
+</html>

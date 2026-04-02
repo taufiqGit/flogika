@@ -1,0 +1,42 @@
+---
+interface Props {
+  lang?: "en" | "id";
+}
+
+const { lang = "en" } = Astro.props;
+const isIndonesian = lang === "id";
+const text = {
+  titleStart: isIndonesian ? "Visi Anda, engineering" : "Your vision, our",
+  titleHighlight: isIndonesian ? "kami." : "engineering.",
+  subtitle: isIndonesian ? "Bergabunglah dengan klien sukses kami dan bangun sesuatu yang luar biasa." : "Join our roster of successful clients and build something remarkable.",
+  ctaPrimary: isIndonesian ? "Mulai Proyek" : "Start a Project",
+  ctaSecondary: isIndonesian ? "Layanan Kami" : "Our Services"
+};
+---
+
+<section id="contact" class="px-6 py-24 bg-black text-white">
+  <div class="max-w-4xl mx-auto text-center">
+    <h2 class="text-4xl lg:text-6xl font-extrabold tracking-tight-uber mb-8">
+      {text.titleStart} <span class="text-[#276EF1]">{text.titleHighlight}</span>
+    </h2>
+    <p class="text-xl text-zinc-400 mb-12">
+      {text.subtitle}
+    </p>
+    <div class="flex flex-col sm:flex-row items-center justify-center gap-6">
+      <a
+        href="https://draft-e11fecc2-0b32-4174-ab08-ccd3c29b1ab1.preview.superdesign.dev"
+        id="cta-primary-btn"
+        class="bg-white text-black px-12 py-5 text-lg font-bold hover:bg-zinc-200 transition-all w-full sm:w-auto"
+      >
+        {text.ctaPrimary}
+      </a>
+      <a
+        href="https://draft-6895e637-8acf-4f1b-b88e-5bad8392c4c2.preview.superdesign.dev"
+        id="cta-secondary-btn"
+        class="bg-zinc-900 border border-zinc-700 text-white px-12 py-5 text-lg font-bold hover:bg-zinc-800 transition-all w-full sm:w-auto"
+      >
+        {text.ctaSecondary}
+      </a>
+    </div>
+  </div>
+</section>

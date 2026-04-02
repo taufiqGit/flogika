@@ -1,0 +1,45 @@
+---
+interface Props {
+  lang?: "en" | "id";
+}
+
+const { lang = "en" } = Astro.props;
+const isIndonesian = lang === "id";
+const text = {
+  title1: isIndonesian ? "Arsitektur API-First" : "API-First Architecture",
+  desc1: isIndonesian ? "Dibangun untuk integrasi dan kesiapan ekosistem digital Anda di masa depan." : "Built for integration and future-proofing your digital ecosystem.",
+  title2: isIndonesian ? "Keamanan by Design" : "Security by Design",
+  desc2: isIndonesian ? "Protokol keamanan ketat untuk menjaga integritas data dan perlindungan pengguna." : "Rigorous security protocols ensuring data integrity and user protection.",
+  title3: isIndonesian ? "Siap Diskalakan" : "Scale Ready",
+  desc3: isIndonesian ? "Infrastruktur stateless yang dirancang untuk menangani jutaan pengguna secara bersamaan." : "Stateless infrastructure designed to handle millions of concurrent users.",
+  title4: isIndonesian ? "Performa Teroptimasi" : "Performance Optimized",
+  desc4: isIndonesian ? "Waktu muat sub-detik dan skor Core Web Vitals tinggi untuk SEO lebih baik." : "Sub-second load times and high Core Web Vital scores for better SEO."
+};
+---
+
+<section class="bg-black text-white py-24 px-6 lg:px-12">
+  <div class="max-w-7xl mx-auto">
+    <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-12">
+      <div class="space-y-4">
+        <div class="text-[#276EF1] text-4xl font-bold"><iconify-icon icon="lucide:zap"></iconify-icon></div>
+        <h3 class="text-xl font-bold">{text.title1}</h3>
+        <p class="text-zinc-400 text-sm">{text.desc1}</p>
+      </div>
+      <div class="space-y-4">
+        <div class="text-[#276EF1] text-4xl font-bold"><iconify-icon icon="lucide:shield-check"></iconify-icon></div>
+        <h3 class="text-xl font-bold">{text.title2}</h3>
+        <p class="text-zinc-400 text-sm">{text.desc2}</p>
+      </div>
+      <div class="space-y-4">
+        <div class="text-[#276EF1] text-4xl font-bold"><iconify-icon icon="lucide:layers"></iconify-icon></div>
+        <h3 class="text-xl font-bold">{text.title3}</h3>
+        <p class="text-zinc-400 text-sm">{text.desc3}</p>
+      </div>
+      <div class="space-y-4">
+        <div class="text-[#276EF1] text-4xl font-bold"><iconify-icon icon="lucide:rocket"></iconify-icon></div>
+        <h3 class="text-xl font-bold">{text.title4}</h3>
+        <p class="text-zinc-400 text-sm">{text.desc4}</p>
+      </div>
+    </div>
+  </div>
+</section>

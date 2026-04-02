@@ -1,0 +1,255 @@
+---
+import { getRelativeLocaleUrl } from 'astro:i18n';
+interface Props {
+  lang?: "en" | "id";
+}
+const { lang = "en" } = Astro.props;
+const isIndonesian = lang === "id";
+const text = {
+  badge: isIndonesian ? "Agensi Pengembangan" : "Development Agency",
+  heroTitleStart: isIndonesian ? "Kami membangun" : "We build the",
+  heroTitleHighlight: isIndonesian ? "masa depan" : "future",
+  heroTitleEnd: isIndonesian ? "web." : "of web.",
+  heroDesc: isIndonesian
+    ? "Menciptakan pengalaman digital berkinerja tinggi yang mendorong pertumbuhan, efisiensi, dan skala untuk bisnis secara global."
+    : "Crafting high-performance digital experiences that drive growth, efficiency, and scale for businesses globally.",
+  ctaStart: isIndonesian ? "Mulai proyek" : "Start a project",
+  ctaWork: isIndonesian ? "Lihat karya kami" : "View our work",
+  servicesHeading: isIndonesian ? "Kemampuan Inti" : "Core Capabilities",
+  servicesDesc: isIndonesian
+    ? "Dari startup tahap awal hingga sistem enterprise, kami menyediakan layanan pengembangan end-to-end yang disesuaikan dengan kebutuhan Anda."
+    : "From early-stage startups to enterprise systems, we provide end-to-end development services tailored to your needs.",
+  servicesAll: isIndonesian ? "Semua layanan" : "All services",
+  card1Title: isIndonesian ? "Pengembangan Frontend" : "Frontend Dev",
+  card1Desc: isIndonesian
+    ? "Antarmuka interaktif, performa tinggi, dan responsif dibangun dengan React, Vue, dan Tailwind CSS."
+    : "Highly interactive, performant, and responsive interfaces built with React, Vue, and Tailwind CSS.",
+  card1B1: isIndonesian ? "Arsitektur Headless" : "Headless Architecture",
+  card1B2: isIndonesian ? "Performa Next.js" : "Next.js Performance",
+  card1B3: isIndonesian ? "Pengembangan Design System" : "Design System Dev",
+  card2Title: isIndonesian ? "Sistem Backend" : "Backend Systems",
+  card2Desc: isIndonesian
+    ? "Solusi sisi server yang skalabel, aman, dan andal untuk kebutuhan bisnis paling kritis."
+    : "Scalable, secure, and robust server-side solutions powering your most critical business logic.",
+  card2B1: isIndonesian ? "Pengembangan API" : "API Development",
+  card2B2: isIndonesian ? "Infrastruktur Cloud" : "Cloud Infrastructure",
+  card2B3: isIndonesian ? "Arsitektur Database" : "Database Architecture",
+  card3Title: isIndonesian ? "Produk Digital" : "Digital Products",
+  card3Desc: isIndonesian
+    ? "Strategi produk komprehensif dan pengembangan untuk mewujudkan ide visioner ke pasar."
+    : "Comprehensive product strategy and development to bring your visionary ideas to market.",
+  card3B1: isIndonesian ? "Platform SaaS" : "SaaS Platforms",
+  card3B2: isIndonesian ? "Solusi E-commerce" : "E-commerce Solutions",
+  card3B3: isIndonesian ? "Pengembangan MVP" : "MVP Development",
+  stat1: isIndonesian ? "Proyek Terselesaikan" : "Projects Delivered",
+  stat2: isIndonesian ? "Wilayah Global" : "Global Regions",
+  stat3: isIndonesian ? "Retensi Klien" : "Client Retention",
+  stat4: isIndonesian ? "Pengguna Terjangkau" : "Users Reached",
+  contactTitleStart: isIndonesian ? "Siap mendefinisikan ulang" : "Ready to redefine your",
+  contactTitleHighlight: isIndonesian ? "kehadiran digital?" : "digital presence?",
+  contactDesc: isIndonesian
+    ? "Bermitra dengan tim pengembangan ahli kami untuk membangun solusi web berdampak tinggi yang dapat diskalakan."
+    : "Partner with our expert development team to build high-impact web solutions that scale.",
+  contactPrimary: isIndonesian ? "Mulai Proyek" : "Start a Project",
+  contactSecondary: isIndonesian ? "Proses Kami" : "Our Process"
+};
+const servicesLink = getRelativeLocaleUrl(lang, "service");
+---
+<section class="px-6 lg:px-12 py-16 lg:py-24 max-w-7xl mx-auto">
+  <div class="grid lg:grid-cols-2 gap-16 items-center">
+    <div class="space-y-8">
+      <div class="inline-block bg-black text-white px-3 py-1 text-[10px] uppercase tracking-widest font-bold">
+        {text.badge}
+      </div>
+      <h1 class="text-6xl lg:text-8xl font-extrabold tracking-tight-uber leading-none">
+        {text.heroTitleStart} <span class="text-[#276EF1]">{text.heroTitleHighlight}</span> {text.heroTitleEnd}
+      </h1>
+      <p class="text-xl text-zinc-600 max-w-lg">
+        {text.heroDesc}
+      </p>
+      <div class="flex items-center gap-4">
+        <a
+          href="#contact"
+          id="hero-start-btn"
+          class="bg-black text-white px-8 py-4 text-base font-bold flex items-center gap-3 hover:bg-zinc-800 transition-all"
+        >
+          {text.ctaStart}
+          <iconify-icon icon="lucide:arrow-right"></iconify-icon>
+        </a>
+        <a
+          href="#portfolio"
+          id="hero-work-link"
+          class="text-black font-semibold border-b-2 border-black pb-1 hover:text-[#276EF1] hover:border-[#276EF1] transition-all"
+        >
+          {text.ctaWork}
+        </a>
+      </div>
+    </div>
+    <div class="relative">
+      <div class="absolute -inset-4 bg-zinc-100 rounded-3xl -z-10 transform rotate-2">
+      </div>
+      <img
+        src="https://pquxfbbxflqvtidtlrhl.supabase.co/storage/v1/object/public/hmac-uploads/brand/aa611a48-0f31-4fc3-91b8-a97e15fbee97/assets/cd41ecf3-24c9-407d-8b6f-51ed14683272.webp"
+        alt="Web Development Dashboard"
+        class="rounded-2xl shadow-2xl w-full h-[500px] object-cover"
+      />
+    </div>
+  </div>
+</section>
+
+<section id="services" class="bg-[#F3F3F3] py-24 px-6 lg:px-12">
+  <div class="max-w-7xl mx-auto">
+    <div class="flex flex-col md:flex-row md:items-end justify-between gap-8 mb-16">
+      <div class="max-w-xl">
+        <h2 class="text-4xl font-bold tracking-tight-uber mb-4">
+          {text.servicesHeading}
+        </h2>
+        <p class="text-zinc-600">
+          {text.servicesDesc}
+        </p>
+      </div>
+      <a
+        href={servicesLink}
+        id="services-all-link"
+        class="text-sm font-bold flex items-center gap-2 hover:text-[#276EF1] transition-colors"
+      >
+        {text.servicesAll} <iconify-icon icon="lucide:chevron-right"></iconify-icon>
+      </a>
+    </div>
+
+    <div class="grid md:grid-cols-3 gap-8">
+      <div class="bg-white p-8 group hover:shadow-xl transition-all">
+        <div class="w-12 h-12 bg-black text-white flex items-center justify-center mb-6">
+          <iconify-icon icon="lucide:monitor" class="text-2xl"></iconify-icon>
+        </div>
+        <h3 class="text-2xl font-bold mb-3">
+          {text.card1Title}
+        </h3>
+        <p class="text-zinc-500 mb-6">
+          {text.card1Desc}
+        </p>
+        <ul class="space-y-2 text-sm font-medium">
+          <li class="flex items-center gap-2">
+            <iconify-icon icon="lucide:check" class="text-[#276EF1]"></iconify-icon> {text.card1B1}
+          </li>
+          <li class="flex items-center gap-2">
+            <iconify-icon icon="lucide:check" class="text-[#276EF1]"></iconify-icon> {text.card1B2}
+          </li>
+          <li class="flex items-center gap-2">
+            <iconify-icon icon="lucide:check" class="text-[#276EF1]"></iconify-icon> {text.card1B3}
+          </li>
+        </ul>
+      </div>
+
+      <div class="bg-white p-8 group hover:shadow-xl transition-all">
+        <div class="w-12 h-12 bg-black text-white flex items-center justify-center mb-6">
+          <iconify-icon icon="lucide:server" class="text-2xl"></iconify-icon>
+        </div>
+        <h3 class="text-2xl font-bold mb-3">
+          {text.card2Title}
+        </h3>
+        <p class="text-zinc-500 mb-6">
+          {text.card2Desc}
+        </p>
+        <ul class="space-y-2 text-sm font-medium">
+          <li class="flex items-center gap-2">
+            <iconify-icon icon="lucide:check" class="text-[#276EF1]"></iconify-icon> {text.card2B1}
+          </li>
+          <li class="flex items-center gap-2">
+            <iconify-icon icon="lucide:check" class="text-[#276EF1]"></iconify-icon> {text.card2B2}
+          </li>
+          <li class="flex items-center gap-2">
+            <iconify-icon icon="lucide:check" class="text-[#276EF1]"></iconify-icon> {text.card2B3}
+          </li>
+        </ul>
+      </div>
+
+      <div class="bg-white p-8 group hover:shadow-xl transition-all">
+        <div class="w-12 h-12 bg-black text-white flex items-center justify-center mb-6">
+          <iconify-icon icon="lucide:layout-grid" class="text-2xl"></iconify-icon>
+        </div>
+        <h3 class="text-2xl font-bold mb-3">
+          {text.card3Title}
+        </h3>
+        <p class="text-zinc-500 mb-6">
+          {text.card3Desc}
+        </p>
+        <ul class="space-y-2 text-sm font-medium">
+          <li class="flex items-center gap-2">
+            <iconify-icon icon="lucide:check" class="text-[#276EF1]"></iconify-icon> {text.card3B1}
+          </li>
+          <li class="flex items-center gap-2">
+            <iconify-icon icon="lucide:check" class="text-[#276EF1]"></iconify-icon> {text.card3B2}
+          </li>
+          <li class="flex items-center gap-2">
+            <iconify-icon icon="lucide:check" class="text-[#276EF1]"></iconify-icon> {text.card3B3}
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="py-24 px-6 lg:px-12 max-w-7xl mx-auto">
+  <div class="grid md:grid-cols-4 gap-12 border-y border-zinc-100 py-16">
+    <div class="text-center">
+      <div class="text-5xl font-extrabold tracking-tight-uber mb-2">
+        150+
+      </div>
+      <div class="text-zinc-500 text-sm font-semibold uppercase">
+        {text.stat1}
+      </div>
+    </div>
+    <div class="text-center">
+      <div class="text-5xl font-extrabold tracking-tight-uber mb-2">
+        12
+      </div>
+      <div class="text-zinc-500 text-sm font-semibold uppercase">
+        {text.stat2}
+      </div>
+    </div>
+    <div class="text-center">
+      <div class="text-5xl font-extrabold tracking-tight-uber mb-2">
+        99%
+      </div>
+      <div class="text-zinc-500 text-sm font-semibold uppercase">
+        {text.stat3}
+      </div>
+    </div>
+    <div class="text-center">
+      <div class="text-5xl font-extrabold tracking-tight-uber mb-2">
+        10M+
+      </div>
+      <div class="text-zinc-500 text-sm font-semibold uppercase">
+        {text.stat4}
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="contact" class="px-6 py-24 bg-black text-white">
+  <div class="max-w-4xl mx-auto text-center">
+    <h2 class="text-4xl lg:text-6xl font-extrabold tracking-tight-uber mb-8">
+      {text.contactTitleStart} <span class="text-[#276EF1]">{text.contactTitleHighlight}</span>
+    </h2>
+    <p class="text-xl text-zinc-400 mb-12">
+      {text.contactDesc}
+    </p>
+    <div class="flex flex-col sm:flex-row items-center justify-center gap-6">
+      <a
+        href="#"
+        id="cta-primary-btn"
+        class="bg-white text-black px-12 py-5 text-lg font-bold hover:bg-zinc-200 transition-all w-full sm:w-auto"
+      >
+        {text.contactPrimary}
+      </a>
+      <a
+        href="#"
+        id="cta-secondary-btn"
+        class="bg-zinc-900 border border-zinc-700 text-white px-12 py-5 text-lg font-bold hover:bg-zinc-800 transition-all w-full sm:w-auto"
+      >
+        {text.contactSecondary}
+      </a>
+    </div>
+  </div>
+</section>

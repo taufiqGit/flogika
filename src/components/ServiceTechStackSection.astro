@@ -1,0 +1,27 @@
+---
+interface Props {
+  lang?: "en" | "id";
+}
+
+const { lang = "en" } = Astro.props;
+const isIndonesian = lang === "id";
+const text = {
+  title: isIndonesian ? "Teknologi Kami" : "Our Tech Stack",
+  subtitle: isIndonesian ? "Tools terbaik untuk hasil terbaik di kelasnya." : "Industry leading tools for industry leading results."
+};
+---
+
+<section class="py-24 px-6 lg:px-12 max-w-7xl mx-auto">
+  <div class="text-center mb-16">
+    <h2 class="text-4xl font-extrabold tracking-tight-uber">{text.title}</h2>
+    <p class="text-zinc-500 mt-4">{text.subtitle}</p>
+  </div>
+  <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8 items-center justify-items-center opacity-70 grayscale hover:grayscale-0 transition-all">
+    <iconify-icon icon="logos:react" class="text-5xl"></iconify-icon>
+    <iconify-icon icon="logos:nextjs-icon" class="text-5xl"></iconify-icon>
+    <iconify-icon icon="logos:tailwindcss-icon" class="text-5xl"></iconify-icon>
+    <iconify-icon icon="logos:typescript-icon" class="text-5xl"></iconify-icon>
+    <iconify-icon icon="logos:nodejs-icon" class="text-5xl"></iconify-icon>
+    <iconify-icon icon="logos:aws" class="text-5xl"></iconify-icon>
+  </div>
+</section>

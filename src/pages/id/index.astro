@@ -1,0 +1,35 @@
+---
+import "../../styles/global.css";
+import AgencyPageHead from "../../components/AgencyPageHead.astro";
+import AgencyNavigation from "../../components/AgencyNavigation.astro";
+import AgencyFooter from "../../components/AgencyFooter.astro";
+import HomeLandingSections from "../../components/HomeLandingSections.astro";
+---
+
+<!doctype html>
+<html lang="id">
+  <head>
+    <AgencyPageHead title="Agensi Pengembangan Web Modern" />
+  </head>
+  <body>
+    <div class="min-h-screen bg-white flex flex-col">
+      <AgencyNavigation
+        activeItem="home"
+        servicesHref="/id/service"
+        portfolioHref="/id/portofolio"
+        aboutHref="/id/about"
+        contactHref="#contact"
+        lang="id"
+      />
+      <main class="flex-1 pt-24" style="view-transition-name: main-content">
+        <HomeLandingSections lang="id" />
+      </main>
+      <AgencyFooter
+        webDevHref="/id/service"
+        aboutHref="/id/about"
+        contactHref="#contact"
+        lang="id"
+      />
+    </div>
+  </body>
+</html>

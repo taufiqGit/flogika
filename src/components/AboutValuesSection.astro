@@ -1,0 +1,35 @@
+---
+interface Props {
+  lang?: "en" | "id";
+}
+
+const { lang = "en" } = Astro.props;
+const isIndonesian = lang === "id";
+const text = {
+  title1: isIndonesian ? "Keunggulan Engineering" : "Engineering Excellence",
+  desc1: isIndonesian ? "Kami mengutamakan arsitektur bersih, reliabilitas, dan maintainability pada setiap baris kode." : "We prioritize clean architecture, reliability, and maintainability in every line of code we deliver.",
+  title2: isIndonesian ? "Product Thinking" : "Product Thinking",
+  desc2: isIndonesian ? "Setiap keputusan teknis selaras dengan outcome pengguna, KPI bisnis, dan strategi produk jangka panjang." : "Every technical decision is aligned with user outcomes, business KPIs, and long-term product strategy.",
+  title3: isIndonesian ? "Kolaborasi Cepat" : "Fast Collaboration",
+  desc3: isIndonesian ? "Kami bekerja sebagai perpanjangan tim Anda dengan komunikasi transparan dan siklus iterasi cepat." : "We work as an extension of your team with transparent communication and rapid iteration cycles."
+};
+---
+
+<section class="bg-[#F3F3F3] py-24 px-6 lg:px-12">
+  <div class="max-w-7xl mx-auto">
+    <div class="grid md:grid-cols-3 gap-10">
+      <div class="bg-white p-8">
+        <h3 class="text-2xl font-bold mb-4">{text.title1}</h3>
+        <p class="text-zinc-600">{text.desc1}</p>
+      </div>
+      <div class="bg-white p-8">
+        <h3 class="text-2xl font-bold mb-4">{text.title2}</h3>
+        <p class="text-zinc-600">{text.desc2}</p>
+      </div>
+      <div class="bg-white p-8">
+        <h3 class="text-2xl font-bold mb-4">{text.title3}</h3>
+        <p class="text-zinc-600">{text.desc3}</p>
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,72 @@
+---
+interface Props {
+  lang?: "en" | "id";
+}
+
+const { lang = "en" } = Astro.props;
+const isIndonesian = lang === "id";
+const text = {
+  title: isIndonesian ? "Paket Proyek" : "Project Tiers",
+  subtitle: isIndonesian ? "Pilihan investasi transparan untuk setiap tahap pertumbuhan." : "Transparent investment plans for every stage of growth.",
+  starterFeature1: isIndonesian ? "Aplikasi Satu Halaman" : "Single Page Application",
+  starterFeature2: isIndonesian ? "Integrasi CMS" : "CMS Integration",
+  starterFeature3: isIndonesian ? "SEO Standar" : "Standard SEO",
+  starterCta: isIndonesian ? "Pilih Starter" : "Choose Starter",
+  popular: isIndonesian ? "Paling Populer" : "Most Popular",
+  growthFeature1: isIndonesian ? "Aplikasi Web Multi-halaman" : "Multi-page Web App",
+  growthFeature2: isIndonesian ? "Pengembangan API Kustom" : "Custom API Development",
+  growthFeature3: isIndonesian ? "Support 30 Hari" : "30-Day Support",
+  growthCta: isIndonesian ? "Pilih Growth" : "Choose Growth",
+  enterprisePrice: isIndonesian ? "Kustom" : "Custom",
+  enterpriseFeature1: isIndonesian ? "Sistem SaaS Skala Penuh" : "Full-scale SaaS Systems",
+  enterpriseFeature2: isIndonesian ? "DevOps Dedicated" : "Dedicated DevOps",
+  enterpriseFeature3: isIndonesian ? "SLA & Support Prioritas" : "SLA & Priority Support",
+  enterpriseCta: isIndonesian ? "Hubungi Sales" : "Talk to Sales"
+};
+---
+
+<section class="bg-[#F3F3F3] py-24 px-6 lg:px-12">
+  <div class="max-w-7xl mx-auto">
+    <div class="text-center mb-16">
+      <h2 class="text-4xl font-extrabold tracking-tight-uber">{text.title}</h2>
+      <p class="text-zinc-500 mt-2">{text.subtitle}</p>
+    </div>
+    <div class="grid md:grid-cols-3 gap-8">
+      <div class="bg-white p-10 border border-zinc-200 flex flex-col">
+        <h3 class="text-xl font-bold mb-2">Starter</h3>
+        <div class="text-4xl font-black mb-6">$2,500<span class="text-sm text-zinc-400 font-normal"> / base</span></div>
+        <ul class="space-y-4 text-sm text-zinc-600 mb-10 flex-1">
+          <li><iconify-icon icon="lucide:check" class="text-[#276EF1] mr-2"></iconify-icon> {text.starterFeature1}</li>
+          <li><iconify-icon icon="lucide:check" class="text-[#276EF1] mr-2"></iconify-icon> {text.starterFeature2}</li>
+          <li><iconify-icon icon="lucide:check" class="text-[#276EF1] mr-2"></iconify-icon> {text.starterFeature3}</li>
+        </ul>
+        <a href="https://draft-e11fecc2-0b32-4174-ab08-ccd3c29b1ab1.preview.superdesign.dev" class="w-full py-4 bg-zinc-100 text-black text-center font-bold hover:bg-zinc-200 transition-all">{text.starterCta}</a>
+      </div>
+
+      <div class="bg-white p-10 border-2 border-black relative flex flex-col shadow-2xl scale-105 z-10">
+        <div class="absolute -top-4 left-1/2 -translate-x-1/2 bg-black text-white px-4 py-1 text-[10px] font-bold uppercase tracking-widest">
+          {text.popular}
+        </div>
+        <h3 class="text-xl font-bold mb-2">Growth</h3>
+        <div class="text-4xl font-black mb-6">$5,000<span class="text-sm text-zinc-400 font-normal"> / base</span></div>
+        <ul class="space-y-4 text-sm text-zinc-600 mb-10 flex-1">
+          <li><iconify-icon icon="lucide:check" class="text-[#276EF1] mr-2"></iconify-icon> {text.growthFeature1}</li>
+          <li><iconify-icon icon="lucide:check" class="text-[#276EF1] mr-2"></iconify-icon> {text.growthFeature2}</li>
+          <li><iconify-icon icon="lucide:check" class="text-[#276EF1] mr-2"></iconify-icon> {text.growthFeature3}</li>
+        </ul>
+        <a href="https://draft-e11fecc2-0b32-4174-ab08-ccd3c29b1ab1.preview.superdesign.dev" class="w-full py-4 bg-black text-white text-center font-bold hover:bg-zinc-800 transition-all">{text.growthCta}</a>
+      </div>
+
+      <div class="bg-white p-10 border border-zinc-200 flex flex-col">
+        <h3 class="text-xl font-bold mb-2">Enterprise</h3>
+        <div class="text-4xl font-black mb-6">{text.enterprisePrice}</div>
+        <ul class="space-y-4 text-sm text-zinc-600 mb-10 flex-1">
+          <li><iconify-icon icon="lucide:check" class="text-[#276EF1] mr-2"></iconify-icon> {text.enterpriseFeature1}</li>
+          <li><iconify-icon icon="lucide:check" class="text-[#276EF1] mr-2"></iconify-icon> {text.enterpriseFeature2}</li>
+          <li><iconify-icon icon="lucide:check" class="text-[#276EF1] mr-2"></iconify-icon> {text.enterpriseFeature3}</li>
+        </ul>
+        <a href="https://draft-e11fecc2-0b32-4174-ab08-ccd3c29b1ab1.preview.superdesign.dev" class="w-full py-4 bg-zinc-100 text-black text-center font-bold hover:bg-zinc-200 transition-all">{text.enterpriseCta}</a>
+      </div>
+    </div>
+  </div>
+</section>
