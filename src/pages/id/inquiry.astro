@@ -3,13 +3,14 @@ import "../../styles/global.css";
 import AgencyPageHead from "../../components/AgencyPageHead.astro";
 import AgencyNavigation from "../../components/AgencyNavigation.astro";
 import AgencyFooter from "../../components/AgencyFooter.astro";
-import HomeLandingSections from "../../components/HomeLandingSections.astro";
+import InquiryHeroSection from "../../components/InquiryHeroSection.astro";
+import InquiryFormSection from "../../components/InquiryFormSection.astro";
 ---
 
 <!doctype html>
 <html lang="id">
   <head>
-    <AgencyPageHead title="Flogika | Software Development Agency" />
+    <AgencyPageHead title="Konsultasi Proyek | Web Dev Agency" />
   </head>
   <body>
     <div class="min-h-screen bg-white flex flex-col">
@@ -18,16 +19,21 @@ import HomeLandingSections from "../../components/HomeLandingSections.astro";
         servicesHref="/id/service"
         portfolioHref="/id/portofolio"
         aboutHref="/id/about"
-        contactHref="#contact"
+        contactHref="/id/inquiry"
         lang="id"
       />
-      <main class="flex-1 pt-24" style="view-transition-name: main-content">
-        <HomeLandingSections lang="id" />
+
+      <main id="inquiry-form" class="flex-1 pt-32 pb-24" style="view-transition-name: main-content">
+        <div class="max-w-4xl mx-auto px-6 lg:px-12">
+          <InquiryHeroSection lang="id" />
+          <InquiryFormSection lang="id" />
+        </div>
       </main>
+
       <AgencyFooter
         webDevHref="/id/service"
         aboutHref="/id/about"
-        contactHref="#contact"
+        contactHref="/id/inquiry"
         lang="id"
       />
     </div>

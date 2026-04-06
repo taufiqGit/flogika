@@ -1,0 +1,23 @@
+---
+interface Props {
+  lang?: "en" | "id";
+}
+
+const { lang = "en" } = Astro.props;
+const isId = lang === "id";
+---
+
+<section class="mb-16 space-y-4">
+  <div class="inline-flex items-center gap-2 bg-[#F3F3F3] px-3 py-1 text-[10px] uppercase tracking-widest font-bold">
+    <span class="w-2 h-2 rounded-full bg-[#276EF1]"></span>
+    {isId ? "Langkah 1 dari 1" : "Step 1 of 1"}
+  </div>
+  <h1 class="text-5xl lg:text-7xl font-extrabold tracking-tight-uber">
+    {isId ? "Konsultasi Proyek" : "Project Inquiry"}
+  </h1>
+  <p class="text-xl text-zinc-500 max-w-2xl">
+    {isId
+      ? "Ceritakan proyek Anda. Tim kami akan meninjau kebutuhan Anda dan menghubungi Anda dalam 24 jam."
+      : "Tell us about your project. Our experts will review your requirements and reach out within 24 hours."}
+  </p>
+</section>
