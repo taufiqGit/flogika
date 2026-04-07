@@ -5,15 +5,16 @@ RUN npm ci
 COPY . .
 RUN npm run build
 
-FROM rust:1.82-alpine AS rust_builder
+FROM golang:1.22-alpine AS go_builder
 WORKDIR /app
-COPY rust-server ./rust-server
-RUN cargo build --release --manifest-path rust-server/Cargo.toml
+COPY go-server ./go-server
+RUN cd go-server && go mod download
+RUN cd go-server && CGO_ENABLED=0 GOOS=linux GOARCH=amd64 go build -o /app/server ./main.go
 
 FROM alpine:3.20
 WORKDIR /app
 RUN adduser -D appuser
-COPY --from=rust_builder /app/rust-server/target/release/astro_nomi_server /usr/local/bin/server
+COPY --from=go_builder /app/server /usr/local/bin/server
 COPY --from=web_builder /app/dist ./dist
 USER appuser
 EXPOSE 8081
