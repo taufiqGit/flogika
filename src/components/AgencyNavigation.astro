@@ -1,7 +1,7 @@
 ---
 import { getRelativeLocaleUrl } from 'astro:i18n';
 interface Props {
-  activeItem?: "home" | "services" | "portfolio" | "about";
+  activeItem?: "home" | "services" | "portfolio" | "about" | "inquiry";
   homeHref?: string;
   servicesHref?: string;
   portfolioHref?: string;
@@ -19,7 +19,7 @@ const {
   portfolioHref,
   aboutHref,
   contactHref = "#contact",
-  lang = "en",
+  lang = "id",
   switchToEnHref,
   switchToIdHref
 } = Astro.props;
@@ -38,7 +38,8 @@ const routeByItem = {
   home: "",
   services: "service",
   portfolio: "portofolio",
-  about: "about"
+  about: "about",
+  inquiry: "inquiry"
 } as const;
 const targetRoute = routeByItem[activeItem];
 const toEn = getRelativeLocaleUrl("en", targetRoute);
