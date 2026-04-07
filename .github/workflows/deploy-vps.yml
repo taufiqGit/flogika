@@ -19,7 +19,7 @@ jobs:
       contents: read
       packages: write
     env:
-      IMAGE_REPO: ${{ vars.IMAGE_REPO || format('ghcr.io/{0}/astro-nomi', github.repository_owner) }}
+      IMAGE_REPO: ${{ vars.IMAGE_REPO || 'ghcr.io/taufiqgit/astro-nomi' }}
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -48,7 +48,7 @@ jobs:
     runs-on: ubuntu-latest
     needs: build-and-push
     env:
-      IMAGE_REPO: ${{ vars.IMAGE_REPO || format('ghcr.io/{0}/astro-nomi', github.repository_owner) }}
+      IMAGE_REPO: ${{ vars.IMAGE_REPO || 'ghcr.io/taufiqgit/astro-nomi' }}
       CONTAINER_NAME: ${{ vars.CONTAINER_NAME || 'astro-nomi' }}
       HOST_PORT: ${{ vars.HOST_PORT || '80' }}
       CONTAINER_PORT: ${{ vars.CONTAINER_PORT || '8081' }}
