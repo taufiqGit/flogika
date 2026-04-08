@@ -8,33 +8,33 @@ import InquiryFormSection from "../../components/InquiryFormSection.astro";
 ---
 
 <!doctype html>
-<html lang="id">
+<html lang="en">
   <head>
-    <AgencyPageHead title="Konsultasi Proyek | Web Dev Agency" />
+    <AgencyPageHead title="Project Inquiry | Web Dev Agency" />
   </head>
   <body>
     <div class="min-h-screen bg-white flex flex-col">
       <AgencyNavigation
         activeItem="inquiry"
-        servicesHref="/id/service"
-        portfolioHref="/id/portofolio"
-        aboutHref="/id/about"
-        contactHref="/id/inquiry"
-        lang="id"
+        servicesHref="/service"
+        portfolioHref="/portofolio"
+        aboutHref="/about"
+        contactHref="/inquiry"
+        lang="en"
       />
 
       <main id="inquiry-form" class="flex-1 pt-32 pb-24" style="view-transition-name: main-content">
         <div class="max-w-4xl mx-auto px-6 lg:px-12">
-          <InquiryHeroSection lang="id" />
-          <InquiryFormSection lang="id" />
+          <InquiryHeroSection lang="en" />
+          <InquiryFormSection lang="en" />
         </div>
       </main>
 
       <AgencyFooter
-        webDevHref="/id/service"
-        aboutHref="/id/about"
-        contactHref="/id/inquiry"
-        lang="id"
+        webDevHref="/service"
+        aboutHref="/about"
+        contactHref="/inquiry"
+        lang="en"
       />
     </div>
   </body>

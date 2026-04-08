@@ -9,32 +9,33 @@ import AboutCtaSection from "../components/AboutCtaSection.astro";
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang="id">
   <head>
-    <AgencyPageHead title="Flogika About | Software Development Agency" />
+    <AgencyPageHead title="Tentang Flogika | Software Development Agency" />
   </head>
   <body>
     <div class="min-h-screen bg-white flex flex-col">
       <AgencyNavigation
         activeItem="about"
-        servicesHref="/service"
-        portfolioHref="/portofolio"
-        aboutHref="/about"
+        homeHref="/"
+        servicesHref="/id/service"
+        portfolioHref="/id/portofolio"
+        aboutHref="/id/about"
         contactHref="#contact"
-        lang="en"
+        lang="id"
         switchToEnHref="/about"
         switchToIdHref="/id/about"
       />
       <main class="flex-1 pt-24" style="view-transition-name: main-content">
-        <AboutHeroSection lang="en" />
-        <AboutValuesSection lang="en" />
-        <AboutCtaSection lang="en" />
+        <AboutHeroSection lang="id" />
+        <AboutValuesSection lang="id" />
+        <AboutCtaSection lang="id" />
       </main>
       <AgencyFooter
-        webDevHref="/service"
-        aboutHref="/about"
+        webDevHref="/id/service"
+        aboutHref="/id/about"
         contactHref="#contact"
-        lang="en"
+        lang="id"
       />
     </div>
   </body>

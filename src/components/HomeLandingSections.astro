@@ -6,10 +6,10 @@ interface Props {
 const { lang = "en" } = Astro.props;
 const isIndonesian = lang === "id";
 const text = {
-  badge: isIndonesian ? "Agensi Pengembangan" : "Development Agency",
+  badge: isIndonesian ? "Agensi Pengembangan Software" : "Software Development Agency",
   heroTitleStart: isIndonesian ? "Kami membangun" : "We build the",
   heroTitleHighlight: isIndonesian ? "masa depan" : "future",
-  heroTitleEnd: isIndonesian ? "web." : "of web.",
+  heroTitleEnd: isIndonesian ? "Aplikasi, Web dan Software." : "of web.",
   heroDesc: isIndonesian
     ? "Menciptakan pengalaman digital berkinerja tinggi yang mendorong pertumbuhan, efisiensi, dan skala untuk bisnis secara global."
     : "Crafting high-performance digital experiences that drive growth, efficiency, and scale for businesses globally.",
@@ -20,10 +20,10 @@ const text = {
     ? "Dari startup tahap awal hingga sistem enterprise, kami menyediakan layanan pengembangan end-to-end yang disesuaikan dengan kebutuhan Anda."
     : "From early-stage startups to enterprise systems, we provide end-to-end development services tailored to your needs.",
   servicesAll: isIndonesian ? "Semua layanan" : "All services",
-  card1Title: isIndonesian ? "Pengembangan Frontend" : "Frontend Dev",
+  card1Title: isIndonesian ? "Pengembangan Website, Blog, dan Aplikasi Sederhana" : "Frontend Dev",
   card1Desc: isIndonesian
-    ? "Antarmuka interaktif, performa tinggi, dan responsif dibangun dengan React, Vue, dan Tailwind CSS."
-    : "Highly interactive, performant, and responsive interfaces built with React, Vue, and Tailwind CSS.",
+    ? "Antarmuka interaktif, performa tinggi, dan responsif dibangun dengan Astro, React, Vue, dan Tailwind CSS."
+    : "Highly interactive, performant, and responsive interfaces built with Astro, React, Vue, and Tailwind CSS.",
   card1B1: isIndonesian ? "Arsitektur Headless" : "Headless Architecture",
   card1B2: isIndonesian ? "Performa Next.js" : "Next.js Performance",
   card1B3: isIndonesian ? "Pengembangan Design System" : "Design System Dev",

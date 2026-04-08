@@ -10,9 +10,9 @@ import PortfolioCtaSection from "../components/PortfolioCtaSection.astro";
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang="id">
   <head>
-    <AgencyPageHead title="Flogika Portfolio | Software Development Agency" />
+    <AgencyPageHead title="Flogika Portof Portfolio | Software Development Agency" />
     <style>
       .project-card:hover .project-image {
         transform: scale(1.05);
@@ -27,25 +27,26 @@ import PortfolioCtaSection from "../components/PortfolioCtaSection.astro";
     <div class="min-h-screen bg-white flex flex-col">
       <AgencyNavigation
         activeItem="portfolio"
-        servicesHref="/service"
-        portfolioHref="/portofolio"
-        aboutHref="/about"
+        homeHref="/"
+        servicesHref="/id/service"
+        portfolioHref="/id/portofolio"
+        aboutHref="/id/about"
         contactHref="#contact"
-        lang="en"
+        lang="id"
         switchToEnHref="/portofolio"
         switchToIdHref="/id/portofolio"
       />
       <main class="flex-1 pt-24" style="view-transition-name: main-content">
-        <PortfolioHeroSection lang="en" />
-        <PortfolioFilterSection lang="en" />
-        <PortfolioProjectsSection lang="en" />
-        <PortfolioCtaSection lang="en" />
+        <PortfolioHeroSection lang="id" />
+        <PortfolioFilterSection lang="id" />
+        <PortfolioProjectsSection lang="id" />
+        <PortfolioCtaSection lang="id" />
       </main>
       <AgencyFooter
-        webDevHref="/service"
-        aboutHref="/about"
+        webDevHref="/id/service"
+        aboutHref="/id/about"
         contactHref="#contact"
-        lang="en"
+        lang="id"
       />
     </div>
   </body>
