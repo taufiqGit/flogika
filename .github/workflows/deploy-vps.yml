@@ -40,8 +40,8 @@ jobs:
           context: .
           push: true
           tags: |
-            ${{ secrets.IMAGE_REPO }}:${{ github.sha }}
-            ${{ secrets.IMAGE_REPO }}:latest
+            ${{ env.IMAGE_REPO }}:${{ github.sha }}
+            ${{ env.IMAGE_REPO }}:latest
 
   deploy:
     name: Deploy App
@@ -67,16 +67,21 @@ jobs:
               echo "${{ secrets.GHCR_TOKEN }}" | docker login ghcr.io -u "${{ secrets.GHCR_USERNAME }}" --password-stdin
             fi
 
-            docker pull "${{ secrets.IMAGE_REPO }}:${{ github.sha }}"
+            docker pull "${{ env.IMAGE_REPO }}:${{ github.sha }}"
 
-            if docker ps -a --format '{{.Names}}' | grep -Eq '^${{ secrets.CONTAINER_NAME }}$'; then
-              docker rm -f "${{ secrets.CONTAINER_NAME }}"
+            if docker ps -a --format '{{.Names}}' | grep -Eq '^${{ env.CONTAINER_NAME }}$'; then
+              docker rm -f "${{ env.CONTAINER_NAME }}"
+            fi
+
+            PORT_HOLDER="$(docker ps --format '{{.ID}} {{.Ports}}' | awk '/:${{ env.HOST_PORT }}->/{print $1}' | head -n1 || true)"
+            if [ -n "$PORT_HOLDER" ]; then
+              docker rm -f "$PORT_HOLDER"
             fi
 
             docker run -d \
-              --name "${{ secrets.CONTAINER_NAME }}" \
+              --name "${{ env.CONTAINER_NAME }}" \
               --restart unless-stopped \
-              -p "${{ secrets.HOST_PORT }}:${{ secrets.CONTAINER_PORT }}" \
-              "${{ secrets.IMAGE_REPO }}:${{ github.sha }}"
+              -p "${{ env.HOST_PORT }}:${{ env.CONTAINER_PORT }}" \
+              "${{ env.IMAGE_REPO }}:${{ github.sha }}"
 
             docker image prune -f
